@@ -1,0 +1,26 @@
+---
+title: Payments
+description: "Expected payments, bank transactions, review queue and reconciliation for the tenant."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Finance and back-office staff see what customers owe, what the bank delivered and what still needs a human match. Route: `/payments`. Tabs: Expected, Bank feed, Review queue, Reconciliation.
+
+## What works with the real API
+- Expected payments and bank transactions load from the payments service and fill the page (server wins).
+- Bank statement import (live mode): drop, pick or paste a file. CAMT.053 (XML), MT940 and the German bank CSV are detected from the content and sent to the payments service, which matches each credit to an open payment by RF reference and amount.
+- Manual match, split match and ignore of a transaction are sent to the payments service after the screen updates.
+- Review and unmatched counts come from the service queues call.
+
+## Not finished yet
+- The tabs read the in-browser store, which is refilled from the service. Changes show first in the store, then are mirrored to the server, so a failed mirror can look saved. Not verified end to end.
+- The Reconciliation tab and the KPI cards are computed in the browser from that store.
+- Demo mode only: the "Import bank statement (MOCK)" button and the Open Banking (MOCK) strip.
+- GoCardless SEPA and Stripe labels are provider hints only. No live bank connection is verified.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Payments page](/shots/payments/main-light.png)</TabItem><TabItem label="Dark">![Payments page](/shots/payments/main-dark.png)</TabItem></Tabs>

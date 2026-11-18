@@ -1,0 +1,25 @@
+---
+title: Client portals
+description: "Staff view of which customers have portal access, with invite and impersonation tools."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Staff manage customer access to the portal: invite, resend, revoke sessions and view as the customer. Route: `/client-portals` and `/client-portals/:portalAccountId`.
+
+## What works with the real API
+- The list shows status (Active, Invited, Disabled, Not invited), last login and advisor. It loads from the core API (`/v1/client-portals`) with status and search filters and is server-paged.
+- Opening a row shows a detail view (settings, sessions, support views, audit history). Access, advisor, language and visible portal sections can be edited and are saved with a real update call.
+- Invite, resend invite and revoke sessions are real calls.
+- Start and end impersonation (with a reason) and the active impersonation check are real calls. A banner shows while staff view as a customer.
+- The server side exists in the api service portal admin routes.
+
+## Not finished yet
+- Demo mode uses a mock store. Invites there send no e-mail and are labelled MOCK.
+- Whether invite e-mails are delivered in production is not verified.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Client portals list](/shots/client-portals/main-light.png)</TabItem><TabItem label="Dark">![Client portals list](/shots/client-portals/main-dark.png)</TabItem></Tabs>

@@ -1,0 +1,25 @@
+---
+title: Documents
+description: "List of generated and uploaded documents linked to sales and offers."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+One list of contracts, offers and uploaded files, with their status and signature state. Sales staff use it at `/documents` to preview and upload. Views: All, Awaiting signature, Signed, Contracts, Uploaded, Offers and Void (replaced).
+
+## What works with the real API
+- The list loads through the table-query source (`documents`) in live mode.
+- Upload sends the file to the documents service (`/documents/upload`); the preview downloads it again.
+- Generated documents open in a live preview modal.
+- Signature requests go through the documents service (DocuSeal client).
+
+## Not finished yet
+- Without live mode the page shows demo documents and a MOCK badge on Upload.
+- Real e-signature depends on a configured DocuSeal setup; not verified.
+- Template editing is under Settings, not on this page.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Documents](/shots/documents/main-light.png)</TabItem><TabItem label="Dark">![Documents](/shots/documents/main-dark.png)</TabItem></Tabs>

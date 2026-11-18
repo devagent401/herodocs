@@ -1,0 +1,1 @@
+[{ "name": "main", "path": "/workspace", "waitFor": "Overview" }, { "name": "dashboard", "path": "/workspace?tab=dashboard", "waitFor": "Dashboard" }]

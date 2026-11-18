@@ -1,0 +1,28 @@
+---
+title: "Ask AI"
+description: "A chat panel that answers questions about records and can propose actions."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Ask AI opens a side panel (shortcut Ctrl J) from the sidebar or the top bar. Any member with the AI permission can ask about a lead or the workspace. There is no full page: the sidebar entry opens the panel (route `/ask-ai` only marks the entry).
+
+## What works with the real API
+- In live mode the chat streams from the AI service through the API proxy (`/v1/assistant/ai/chat`).
+- The server checks permission and tenant, reserves and charges real credits, and audits the call.
+- The panel shows the credits used and the new balance, and shows proposed actions as cards.
+- Out-of-credits errors lead to the buy prompt.
+
+The same AI service powers the AI tab on a contact record (summaries and actions, same credits).
+
+## Not finished yet
+- Writes proposed by the AI need user confirmation; action cards were not verified end to end.
+- In mock mode the panel uses a built-in fake model and is labelled MOCK model.
+- The "Write with AI" e-mail helper in the mail composer is always labelled MOCK model.
+- Which LLM provider is configured per environment is not verified.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Ask AI page](/shots/ask-ai/main-light.png)</TabItem><TabItem label="Dark">![Ask AI page, dark](/shots/ask-ai/main-dark.png)</TabItem></Tabs>

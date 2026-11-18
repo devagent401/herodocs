@@ -1,0 +1,25 @@
+---
+title: Holdings & gold
+description: "Customer gold holdings with grams, value and vault allocation."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Back-office staff check how much gold each customer holds and what it is worth. Route: `/holdings` (list) and `/holdings/:holdingId` (detail).
+
+## What works with the real API
+- The list is server-paged through the table query source for holdings.
+- The header (spot price per gram and total grams) loads from the payments service holdings call. It shows the price source and a stale flag.
+- Fulfillment bookings from the Backoffice flow create holdings on the server.
+
+## Not finished yet
+- The detail page has no live call and shows demo data: monthly development, SEPA mandate (GoCardless MOCK), vault allocation (MOCK vault) and spot price (MOCK price feed). Not verified against the server.
+- The gold price provider call exists (keyed provider with fallback), but the demo feed is still the default and is labelled MOCK.
+- The detail page has two tabs: History (monthly chart and transactions) and Savings plan & mandate (plan, SEPA mandate, storage, valuation).
+- Vault reconciliation code exists on the server but has no screen.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Holdings list](/shots/holdings/main-light.png)</TabItem><TabItem label="Dark">![Holdings list](/shots/holdings/main-dark.png)</TabItem></Tabs>

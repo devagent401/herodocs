@@ -1,0 +1,24 @@
+---
+title: "Telephony"
+description: "Manage phone numbers and caller-ID defaults for outbound calls."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Settings page for the tenant's phone numbers and which number each project uses as caller ID. Route: `/settings/phone-numbers`.
+
+## What works with the real API
+- Lists, creates, edits and deletes or retires numbers (`/v1/telephony/numbers`).
+- Reads and sets the default caller ID per project (`/v1/telephony/caller-id-defaults`).
+
+## Not finished yet
+- In demo mode the page is the MOCK Asterisk version.
+- Existing numbers are registered by hand (type: project main, agent direct, campaign, queue, other; status: active, paused, retired). Inbound routing & queues, Absences & substitutes and Recording & transcripts are separate sections under Settings (see Settings).
+- Queues and team availability are labelled MOCK in the mock version.
+- Real number purchase from Twilio is not part of this page; not verified.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Telephony](/shots/telephony/main-light.png)</TabItem><TabItem label="Dark">![Telephony](/shots/telephony/main-dark.png)</TabItem></Tabs>

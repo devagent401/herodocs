@@ -1,0 +1,26 @@
+---
+title: "Offers"
+description: "Create, send and track offers and turn accepted ones into sales."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Offers lists every offer made to a lead, from draft to signed. Sales agents create and send offers here, and team leads follow the pipeline report. Route: `/offers` (also `/offers/new`, `/offers/report`, `/offers/:id`). Views: Open offers, board by status, My offers, Opening, Load, All and Lost. A Report button opens the pipeline report.
+
+## What works with the real API
+- Loads and filters offers from the core API (`/v1/offers`) and shows each offer's history.
+- Create, edit, bulk-create, revise, mark lost, reopen and delete offers go to the server.
+- Send (with explicit confirm), attach contract documents, upload the returned signed contract and link records are server calls.
+- Accept converts the offer into an Opening sale (and Load assignment) on the server.
+- The pipeline report loads from `/v1/reports/pipeline`. Server routes exist in the API pipeline module.
+
+## Not finished yet
+- Contract documents and e-signature go through the separate documents service; the full chain was not verified end to end here.
+- Delivery of the offer by email or message depends on the mail and telephony setup, not verified.
+- In mock mode everything runs on the in-browser store.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Offers page](/shots/offers/main-light.png)</TabItem><TabItem label="Dark">![Offers page, dark](/shots/offers/main-dark.png)</TabItem></Tabs>

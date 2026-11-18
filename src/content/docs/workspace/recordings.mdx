@@ -1,0 +1,26 @@
+---
+title: Recordings
+description: "Library of call recordings with transcripts and an AI question box."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+A library of recorded calls where quality auditors and team leads listen, read transcripts and ask questions about calls. Route: `/recordings`, detail at `/recordings/:id`.
+
+## What works with the real API
+- The list loads recordings from the AI service (`/recordings`).
+- The detail page loads the transcript (`/recordings/<call>/transcript`) and a short-lived audio link for playback.
+- The ask box posts the question to the AI service (`/ask`) and shows the answer with citations.
+- The AI call summary is read from the assistant service outputs (`/ai/outputs`); the card is still labelled MOCK in the UI.
+- Recording itself is done server-side by Asterisk and needs the telephony stack running.
+
+## Not finished yet
+- Without the live services the page shows seeded demo recordings (labelled demo/MOCK).
+- Transcription quality and the legal review of recording (consent, GDPR) are open items in ADR-0005.
+- Ask answers depend on AI credits; the fallback without an LLM is limited.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Recordings](/shots/recordings/main-light.png)</TabItem><TabItem label="Dark">![Recordings](/shots/recordings/main-dark.png)</TabItem></Tabs>

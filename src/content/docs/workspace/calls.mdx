@@ -1,0 +1,28 @@
+---
+title: "Calls"
+description: "Call log with outcomes, recordings and transcript search; real calls need the Asterisk and Twilio stack."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+The call log for the whole team: direction, outcome, duration, linked lead and recording status. Agents and team leads use it at `/calls`; each call opens at `/calls/:callId`, and `/calls/search` is the transcript search. Saved views: All calls, Today, Inbound, Outbound, Missed, With transcript, My calls and a board by outcome.
+
+## What works with the real API
+- The call list loads server call logs through the table-query source (`calls`) in live mode.
+- Call detail shows the transcript and AI call summary from the AI and assistant services once the recording is stored.
+- Call detail loads the recording through a short-lived playback link from the AI service (`/recordings/playback`).
+- Outbound calls, hang-up, answer, decline, transfer (including warm transfer) and mute/hold are sent to the telephony service in live mode.
+- Calls only really connect when the Asterisk service, the Twilio Elastic SIP trunk and the browser softphone are running (see ADR-0005). Otherwise nothing rings.
+
+## Not finished yet
+- Disposition and notes saving: the live write path was not verified.
+- Transcript search (`/calls/search`) is the in-browser mock engine over seeded transcripts and is labelled WHISPER MOCK. There is no server-side search yet.
+- `/calls/simulate` (inbound simulator, button on the list) is demo only.
+- Outside live mode the call detail shows MOCK badges (transcription request, local recording storage).
+- Real-call quality in production is not verified here.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Calls](/shots/calls/main-light.png)![Transcript search](/shots/calls/search-light.png)</TabItem><TabItem label="Dark">![Calls](/shots/calls/main-dark.png)![Transcript search](/shots/calls/search-dark.png)</TabItem></Tabs>

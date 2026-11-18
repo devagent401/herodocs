@@ -1,0 +1,23 @@
+---
+title: "Load"
+description: "Customers handed over to a Load agent after the first sale."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Load lists people who were moved from Opening to a Load agent, with the history and who made the first sale. Team leads assign them and Load agents work them. The table has views In Load, My Load customers, Load pool, a board by Load agent and Closed, plus a "Load sales" panel and a Rule button. Route: `/load`, with `/load/:assignmentId` for one assignment.
+
+## What works with the real API
+- Loads Load sales and assignments from the core API (`/v1/pipeline/load`, `/v1/load/assignments`).
+- Assign, reassign and close assignments are server calls (with confirm and expected count for bulk).
+- The Load rule (`/settings/load-rule`) is read and saved through `/v1/load/rule`.
+
+## Not finished yet
+- The automatic round-robin cursor of the rule is stored by the server, but how it behaves under load was not verified.
+- The assignment detail page mixes server data with local record tabs; not verified fully.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Load page](/shots/load/main-light.png)</TabItem><TabItem label="Dark">![Load page, dark](/shots/load/main-dark.png)</TabItem></Tabs>

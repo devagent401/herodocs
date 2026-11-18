@@ -1,0 +1,25 @@
+---
+title: "Inbox"
+description: "A shared email inbox with focused and other views, threads, drafts and a composer."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+The Inbox is where agents read and answer customer email in one place. It supports several mailboxes, shared mailboxes, threads, flags, snooze and linking a thread to a contact or sale. The left pane lists mailboxes, team inboxes, labels and folders (drafts, scheduled, sent, junk, archive, deleted). Threads can be moved between Focused and Other. Route: `/inbox` (a thread opens at `/inbox/t/:threadId`).
+
+## What works with the real API
+- In live mode the mail app talks to the comms service through the API gateway (`/v1/svc/comms/inbox`), which signs the user's session.
+- Loads mailboxes, folders and threads; sends, drafts and thread actions (read, flag, pin, snooze, move, archive, delete, link) are server calls.
+- Team inboxes, labels, assigning a thread and comments are comms service calls too.
+- Adding an IMAP mailbox is a server call. Gmail connects through OAuth in the comms service.
+
+## Not finished yet
+- Outside live mode the whole inbox runs on an in-browser mock and shows a "MOCK mailboxes" badge.
+- The AI writing assistant in the composer is a MOCK model.
+- Some details are still mock: read receipts, attachment upload in the mock composer, scheduled-send outbox text. Not verified against real mailboxes in this review.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Inbox](/shots/inbox/main-light.png)</TabItem><TabItem label="Dark">![Inbox](/shots/inbox/main-dark.png)</TabItem></Tabs>

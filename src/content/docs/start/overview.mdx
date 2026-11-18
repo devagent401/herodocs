@@ -1,0 +1,64 @@
+---
+title: "HeroCloud overview"
+description: "HeroCloud is a CRM and sales platform for selling and fulfilling physical gold, with calls, email, documents and payments in one place."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+HeroCloud is a web CRM. A sales team finds leads, calls them, sends offers, gets contracts signed and takes payments. Backoffice then buys and stores the gold and confirms to the customer. Everything lives in one app. Different roles see different pages: see [Roles](/start/roles/).
+
+The app has two modes. **Demo mode** uses fake data kept in your browser. **Live mode** talks to the real backend. Each page below says which parts are real.
+
+## What works with the real API
+A typical journey, and the pages involved:
+
+1. A lead arrives and is worked in [Leads](/pipeline/leads/).
+2. An agent calls or emails the lead ([Calls](/workspace/calls/), [Inbox](/workspace/inbox/)).
+3. The agent creates an [offer](/pipeline/offers/) and the customer signs it.
+4. A [payment](/operations/payments/) arrives and is matched to the sale.
+5. [Backoffice](/operations/backoffice/) buys the gold; it shows under [Holdings](/operations/holdings/) and in the [customer portal](/operations/customer-portal/).
+
+## Not finished yet
+Status is set per page and is strict: see the [status legend](/start/status-legend/). See also [Known gaps](/system/known-gaps/).
+
+## Overall status
+Every sidebar section and item, with its overall status:
+
+| Section | Page | Status |
+|---|---|---|
+| Workspace | [Home](/workspace/home/) | <Badge text="Partly integrated" variant="caution" /> |
+| Workspace | [Inbox](/workspace/inbox/) | <Badge text="Partly integrated" variant="caution" /> |
+| Workspace | [Tasks](/workspace/tasks/) | <Badge text="Integrated" variant="success" /> |
+| Workspace | [Calendar](/workspace/calendar/) | <Badge text="Integrated" variant="success" /> |
+| Workspace | [Calls](/workspace/calls/) | <Badge text="Partly integrated" variant="caution" /> |
+| Workspace | [Recordings](/workspace/recordings/) | <Badge text="Integrated" variant="success" /> |
+| Workspace | [Campaigns](/workspace/campaigns/) | <Badge text="Partly integrated" variant="caution" /> |
+| Workspace | [Warm-up](/workspace/warmup/) | <Badge text="Partly integrated" variant="caution" /> |
+| Workspace | [Documents](/workspace/documents/) | <Badge text="Partly integrated" variant="caution" /> |
+| Workspace | [Notifications (bell, not a sidebar item)](/workspace/notifications/) | <Badge text="Partly integrated" variant="caution" /> |
+| Pipeline | [Leads](/pipeline/leads/) | <Badge text="Partly integrated" variant="caution" /> |
+| Pipeline | [Offers](/pipeline/offers/) | <Badge text="Integrated" variant="success" /> |
+| Pipeline | [Opening](/pipeline/opening/) | <Badge text="Partly integrated" variant="caution" /> |
+| Pipeline | [Load](/pipeline/load/) | <Badge text="Integrated" variant="success" /> |
+| Operations | [Payments](/operations/payments/) | <Badge text="Partly integrated" variant="caution" /> |
+| Operations | [Holdings & gold](/operations/holdings/) | <Badge text="Partly integrated" variant="caution" /> |
+| Operations | [Backoffice](/operations/backoffice/) | <Badge text="Partly integrated" variant="caution" /> |
+| Operations | [Client portals](/operations/client-portals/) | <Badge text="Integrated" variant="success" /> |
+| Operations | [Customer portal](/operations/customer-portal/) | <Badge text="Partly integrated" variant="caution" /> |
+| Intelligence | [Ask AI](/intelligence/ask-ai/) | <Badge text="Integrated" variant="success" /> |
+| Intelligence | [AI attributes](/intelligence/ai-attributes/) | <Badge text="Partly integrated" variant="caution" /> |
+| Intelligence | [Compliance](/intelligence/compliance/) | <Badge text="Integrated" variant="success" /> |
+| Admin | [Integrations](/admin/integrations/) | <Badge text="Integrated" variant="success" /> |
+| Admin | [Email infrastructure](/admin/email-infra/) | <Badge text="Partly integrated" variant="caution" /> |
+| Admin | [Domains](/admin/domains/) | <Badge text="Integrated" variant="success" /> |
+| Admin | [Telephony](/admin/telephony/) | <Badge text="Integrated" variant="success" /> |
+| Admin | [Team & roles](/admin/team-roles/) | <Badge text="Integrated" variant="success" /> |
+| Admin | [AI & credits](/admin/ai-credits/) | <Badge text="Partly integrated" variant="caution" /> |
+| Admin | [Audit log](/admin/audit/) | <Badge text="Partly integrated" variant="caution" /> |
+| Admin | [Appearance](/admin/appearance/) | <Badge text="Mock only" variant="danger" /> |
+| Admin | [Settings (other sections)](/admin/settings/) | <Badge text="Partly integrated" variant="caution" /> |
+| Admin | [Platform console (owner only)](/admin/platform/) | <Badge text="Partly integrated" variant="caution" /> |
+| Lists | Saved lists (sidebar group) | See [Leads](/pipeline/leads/) |
+
+## Screenshots
+<Tabs><TabItem label="Light">![Home workspace](/shots/overview/home-light.png)</TabItem><TabItem label="Dark">![Home workspace](/shots/overview/home-dark.png)</TabItem></Tabs>

@@ -1,0 +1,26 @@
+---
+title: "Notifications"
+description: "Your personal list of alerts such as new leads, tasks, payments and mentions."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Notifications is the full list behind the bell in the top bar. Tabs show All, Unread and Mentions. A "Mark all as read" button and a link to the settings page sit on top. Clicking a row marks it read and opens the record; each row can be deleted. Route: `/notifications`. Per-trigger settings live under Settings, Notifications.
+
+## What works with the real API
+- Loads, marks read or unread, and deletes notifications on the server (`/v1/notifications`, `/read`, `/delete`).
+- Settings (in-app and toast per trigger, quiet hours) are saved on the server (`/v1/notifications/settings`).
+- The server turns events into notifications for 16 triggers and pushes them live to the bell and toast. Reminders for tasks and appointments run every 30 seconds.
+- "Send test notification" works end to end (verified 2026-11-17).
+
+## Not finished yet
+- Email notifications and browser (OS) notifications are MOCK.
+- Local Docker stack: events from payments, guard, documents and AI are rejected for missing secrets, so those alerts do not appear there.
+- `payment.matched` has no deal id, so "payment received for your sale" does not fire. Fulfillment cases and bank lines sent to review emit nothing. EMAIL_BOUNCE has no producer.
+- Seed notifications are dated in the future and sort above new ones.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Notifications](/shots/notifications/main-light.png)![Notification settings](/shots/notifications/settings-light.png)</TabItem><TabItem label="Dark">![Notifications](/shots/notifications/main-dark.png)![Notification settings](/shots/notifications/settings-dark.png)</TabItem></Tabs>

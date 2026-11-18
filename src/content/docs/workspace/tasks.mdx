@@ -1,0 +1,24 @@
+---
+title: "Tasks"
+description: "A list of follow-up tasks for you and your team, linked to contacts."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Tasks lists the to-dos of your sales work, such as calling a lead back. Each task has an assignee, a due date and a status. Agents use it daily. Saved views: My open tasks, Due today, Covering for colleagues, Overdue, All open, a board by type, Completed and All. Route: `/tasks`.
+
+## What works with the real API
+- Loads tasks from the core API (`GET /v1/tasks`, within your role scope).
+- Creating, editing (status, due date, reassign) and deleting a task are saved to the server (`POST`, `PATCH`, `DELETE /v1/tasks`).
+- Due and overdue reminders are sent by the server scheduler as notifications.
+
+## Not finished yet
+- The "my day" server endpoint (`/v1/tasks/my-day`) exists, but this page does not call it; views are filtered in the browser.
+- Whether every filter and bulk action on the page is saved to the server is not verified.
+- Loading tasks needs the `person.view` permission; without it the list is empty.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Tasks](/shots/tasks/main-light.png)</TabItem><TabItem label="Dark">![Tasks](/shots/tasks/main-dark.png)</TabItem></Tabs>

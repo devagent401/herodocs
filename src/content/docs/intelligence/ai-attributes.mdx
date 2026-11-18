@@ -1,0 +1,25 @@
+---
+title: "AI attributes"
+description: "Custom fields that AI fills in from each record, such as a lead score."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+AI attributes lets an admin define fields (for example a score or next best action) that AI computes for contacts. Admins with the AI manage permission use it. Route: `/settings/ai-attributes`.
+
+## What works with the real API
+- In live mode definitions are loaded from and registered on the AI service (`/v1/assistant/ai/attributes`).
+- Bulk compute runs one real, metered call per contact (`.../attributes/:id/compute`), stopping at the first error such as no credits.
+- Results are stored by the server and the new balance is shown.
+
+## Not finished yet
+- The field itself is also created in the local metadata store; whether it appears in server-side tables and filters was not verified.
+- Automatic recompute on triggers (recomputeOn) is stored but not verified as running on the server.
+- The "Try on 5 records" preview always uses the MOCK model: it spends no credits and saves nothing.
+- Mock mode uses a fake model, labelled MOCK model.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![AI attributes page](/shots/ai-attributes/main-light.png)</TabItem><TabItem label="Dark">![AI attributes page, dark](/shots/ai-attributes/main-dark.png)</TabItem></Tabs>

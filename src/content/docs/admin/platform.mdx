@@ -1,0 +1,26 @@
+---
+title: "Platform console"
+description: "The operator console for platform owners: all workspaces, plans, announcements and platform audit."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Only platform owners (the people who run HeroCloud itself) see this page. It manages every customer workspace (tenant). Route: `/platform` (tabs: Tenants, Plans, Announcements, Platform audit), with a detail page per tenant at `/platform/tenants/:id` (tabs: Overview, Members, Integrations, Branding, Audit). New owners also meet `/onboarding` and invite links at `/invite/:token`. It does not appear in the sidebar for anyone else.
+
+## What works with the real API
+- Loads the overview and the tenant list from the platform API.
+- Creates a tenant and invites its owner.
+- Edits tenant details, branding and integration assignments; suspends, reactivates, exports and deletes a tenant after confirmation.
+- Starts and ends impersonation (with a reason).
+- Loads and edits plans, and creates or switches off announcements.
+- Loads the platform audit and verifies it; grants monthly credits.
+
+## Not finished yet
+- Invite emails go through a mail port that can be MOCK. The page then shows a one-time link instead. Not verified which setting is used in production.
+- In demo mode the console runs on an in-browser mock and shows a MOCK badge.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Platform console](/shots/platform/main-light.png)</TabItem><TabItem label="Dark">![Platform console](/shots/platform/main-dark.png)</TabItem></Tabs>

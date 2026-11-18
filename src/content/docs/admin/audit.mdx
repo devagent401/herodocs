@@ -1,0 +1,25 @@
+---
+title: "Audit log"
+description: "A read-only list of sensitive and administrative actions: who did what, and when."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+The audit log records actions such as revealing masked contact data, role changes, denied requests, exports and provider webhooks. Admins and project managers use it to answer "who changed this?". Route: `/audit`. It needs the audit-view permission.
+
+## What works with the real API
+- Loads events page by page from the core API, with the time range filter applied on the server.
+- Opens a side panel with the full event and a before/after table of changed fields.
+- Offers views (All events, Sensitive only, PII reveals, Authorization denied, System & providers) and filters by actor, action and entity.
+- Hides the page from roles without the audit permission.
+
+## Not finished yet
+- CSV export is MOCK in the UI. It is labelled so and is not a server export.
+- The page text says production entries go to write-once (WORM) storage. This is not verified.
+- Entries cannot be edited or deleted from the UI (by design).
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Audit log](/shots/audit/main-light.png)</TabItem><TabItem label="Dark">![Audit log](/shots/audit/main-dark.png)</TabItem></Tabs>

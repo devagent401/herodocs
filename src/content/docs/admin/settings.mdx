@@ -1,0 +1,27 @@
+---
+title: "Settings"
+description: "The other settings pages under /settings: what each one is for and where it is covered."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+`/settings` opens a left list of sections. The sidebar items AI & credits, Appearance, Team & roles and Telephony are shortcuts into it. This page lists the rest. Route: `/settings/:section`. Most sections are hidden from roles without the matching permission.
+
+## What works with the real API
+- **Tenant, Projects & brands, Members, Teams, Roles & permissions**: loaded and saved through the settings API. Members are invited through the invite API.
+- **Branding & team**: reads and saves tenant branding.
+- **Phone numbers**: see the Telephony page.
+- **Inbound routing & queues, Absences & substitutes, Recording & transcripts**: live panels in live mode (queues and absences use the telephony and absences routes), MOCK pages in demo mode.
+- **AI attributes**: AI-filled fields, saved through the assistant service.
+- **Service connections, Campaigns (Instantly)**: show live service status.
+
+## Not finished yet
+- **Product blueprints, Privacy & retention**: live panel in live mode, MOCK page in demo mode. Not verified end to end.
+- **Templates, Lead routing, Load rule, Notifications, Booking, Telegram, Collaboration, Compliance guard, Warm-up defaults, Desktop devices, Data model**: each belongs to a feature page and is only partly checked. Status is not verified here.
+- **Integrations & providers**: see the Integrations page.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Settings](/shots/settings/main-light.png)</TabItem><TabItem label="Dark">![Settings](/shots/settings/main-dark.png)</TabItem></Tabs>

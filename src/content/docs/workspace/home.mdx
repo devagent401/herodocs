@@ -1,0 +1,26 @@
+---
+title: "Home"
+description: "Your daily start page with today's work, plus a Dashboard tab for management numbers."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Home is the first page after login. The Overview tab shows your day: new leads, tasks, appointments, calls and unread notifications. The Dashboard tab shows management reports and only appears if you have the `reporting.view` permission. Route: `/workspace` (Dashboard: `/workspace?tab=dashboard`).
+
+## What works with the real API
+- Loads the newest leads from the core API contact search, including the "new today" count.
+- Loads the "open pipeline" amount and open sales count from the server report `GET /v1/reports/kpis`, calculated in your role scope.
+- Tasks and appointments shown here come from the live task and appointment lists (`/v1/tasks`, `/v1/appointments`).
+- Dashboard tab shows a "Live CRM KPIs" card (new leads, calls, won sales, tasks and meetings) from the server report `GET /v1/reports/kpis`, and the offers funnel from `/v1/reports/pipeline`.
+
+## Not finished yet
+- The other Dashboard charts and tables (calls per day, revenue per week, agent activity, campaign attribution) are computed in the browser from loaded data. Not verified which ones have a server report.
+- The CSV export of the Dashboard is labelled MOCK.
+- Campaign spend is not available in live mode ("ad platforms not connected").
+- The Overview cards (new leads, today's tasks, recent calls, my pipeline) link to Leads, Tasks, Calls and Opening. Home widgets from other modules are frontend slots; their data depends on each module.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Home overview](/shots/home/main-light.png)![Dashboard tab](/shots/home/dashboard-light.png)</TabItem><TabItem label="Dark">![Home overview](/shots/home/main-dark.png)![Dashboard tab](/shots/home/dashboard-dark.png)</TabItem></Tabs>

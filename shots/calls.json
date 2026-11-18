@@ -1,0 +1,1 @@
+[{ "name": "main", "path": "/calls", "waitFor": "Calls" },{ "name": "search", "path": "/calls/search", "waitFor": "Transcript search" }]

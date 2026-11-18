@@ -1,0 +1,24 @@
+---
+title: "Opening"
+description: "Sales that were opened from accepted offers and still wait for the next step."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Opening shows the first sale made from an offer. Sales agents and team leads use it to follow and manage these sales. Views: Opening sales, board by fulfilment stage, My Opening sales, Not yet in Load and Cancelled. Route: `/opening`. The old `/sales` and `/deals` pipeline paths simply redirect here (query kept), and `/sales/:id` redirects to `/opening/:id`.
+
+## What works with the real API
+- The list loads Opening sales from the core API (`/v1/pipeline/opening`) with server-side table queries.
+- Cancelling a sale (from the sale detail page) calls the server (`/v1/sales/:id/cancel`).
+- Sale edits are synced to the core API (`/v1/sales`).
+- The sale detail page (`/opening/:dealId`) reuses the sales deal page.
+
+## Not finished yet
+- Parts of the sale detail (payments panel, tasks, notes) are not verified against the API.
+- Moving a sale on to Load is done by assignment on the Load page, not from a separate workflow here.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Opening page](/shots/opening/main-light.png)</TabItem><TabItem label="Dark">![Opening page, dark](/shots/opening/main-dark.png)</TabItem></Tabs>

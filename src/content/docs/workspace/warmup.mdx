@@ -1,0 +1,25 @@
+---
+title: Warm-up
+description: "Shows the cold-email sending flow from domain to ready mailbox."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Shows how each sending mailbox moves from bought domain, DNS, mailbox and warm-up to ready to send. Campaign managers use it at `/warmup` to start or pause warm-up. It also has a DNS health popup per domain (SPF, DKIM, DMARC, MX, provider) and a list of unassigned sending domains in Instantly.
+
+## What works with the real API
+- The mailbox list loads from the comms service (`/warmup/mailboxes`).
+- Start and pause send a confirmed request to the comms service, which forwards it to Instantly.
+- Domain claim and the warm-up defaults (ready threshold) are saved on the comms service.
+- The first stepper step uses the real domain list from the domains service.
+
+## Not finished yet
+- Without an Instantly API key the comms service returns its own demo data and the page shows a MOCK badge. Whether a key is set in production is not verified.
+- The DNS health popup is labelled MOCK for its check date and DMARC details; no live DNS lookup is verified.
+- Buying domains or mailboxes is never done here.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Warm-up](/shots/warmup/main-light.png)</TabItem><TabItem label="Dark">![Warm-up](/shots/warmup/main-dark.png)</TabItem></Tabs>

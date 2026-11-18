@@ -1,0 +1,25 @@
+---
+title: "Integrations"
+description: "Connect external services such as Twilio, Stripe or Cal.com with your own credentials."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+The hub where an admin connects each external provider, tests the connection and sees which ones the server already provides. Route: `/integrations` (and `/integrations/:provider`).
+
+## What works with the real API
+- Filters the list by All, Connected, Not connected and Error.
+- Lists providers and their connection status from the core API (`GET /v1/integrations`).
+- Saves a provider's settings and secrets (`PUT /v1/integrations/:key`); secrets are write-only.
+- Tests a connection (`POST /v1/integrations/:key/test`) and removes a provider (`DELETE`).
+
+## Not finished yet
+- In demo mode everything runs against the in-browser mock server and tests are simulated.
+- The older Settings > Integrations & providers directory still shows mock provider rows in live mode.
+- The server routes exist in the api service (`w7-integrations.ts`; saving and testing need the provider-manage permission). What each provider test really checks is not verified.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Integrations](/shots/integrations/main-light.png)</TabItem><TabItem label="Dark">![Integrations](/shots/integrations/main-dark.png)</TabItem></Tabs>

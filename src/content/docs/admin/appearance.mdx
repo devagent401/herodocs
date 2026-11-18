@@ -1,0 +1,21 @@
+---
+title: "Appearance"
+description: "Choose light or dark theme and a left sidebar or top menu."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Every person can change how the app looks. You pick the theme and where the main menu lives, and you can reset your personal table layouts. Route: `/settings/appearance`. No special permission is needed.
+
+## What works with the real API
+- Nothing. This page has no backend call by design.
+
+## Not finished yet
+- Choices are stored only in this browser (local preferences). They do not follow you to another device or browser.
+- The customer portal always stays light.
+
+## Overall status
+<Badge text="Mock only" variant="danger" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Appearance settings](/shots/appearance/main-light.png)</TabItem><TabItem label="Dark">![Appearance settings](/shots/appearance/main-dark.png)</TabItem></Tabs>

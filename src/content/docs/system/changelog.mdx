@@ -1,0 +1,409 @@
+---
+title: "Changelog"
+description: "What changed in HeroCloud, month by month, taken from the code history."
+---
+import { Badge } from '@astrojs/starlight/components';
+
+This page is generated from the commit history of the HeroCloud app (merge and housekeeping commits left out). A change listed here is **not** proof that a feature is connected to the real API: the status on each feature page stays the source of truth. Last generated 2026-11-18.
+
+## Summary
+
+| Month | Features | Fixes | Improvements | Other |
+| --- | ---: | ---: | ---: | ---: |
+| November 2026 | 111 | 18 | 8 | 8 |
+| September 2026 | 0 | 1 | 0 | 221 |
+
+## November 2026
+
+### Features (111)
+
+- `354dcdc6` `2026-11-17` **notifications** · Add comprehensive documentation for notification system, triggers, and known gaps
+- `6759ea7b` `2026-11-17` **intake** · Update button title and label for live mode and CSV import
+- `1990ca5b` `2026-11-17` **import** · Add tests for CAMT.053, MT940, and CSV statement imports
+- `4d7f5d85` `2026-11-17` **import** · Add sample bank statement CSV for testing and validation
+- `56c77e84` `2026-11-17` **import** · Add sample bank statement CSV for testing and validation
+- `4d587752` `2026-11-17` **import** · Add MT940 sample bank statement for testing and validation
+- `e8ca12d6` `2026-11-17` **import** · Add sample bank statement XML for testing and validation
+- `dc724a03` `2026-11-17` **import** · Implement statement format detection and analysis for bank statements
+- `c006a623` `2026-11-17` **import** · Enhance file upload interaction in ReturnedDialog with keyboard accessibility and improved UI
+- `fd2ac7fe` `2026-11-17` **import** · Enhance live bank statement import with file and paste support, improved error handling, and UI updates
+- `340f0ea2` `2026-11-17` **import** · Add tests for bank statement import dialog and format detection
+- `bbd209b0` `2026-11-17` **import** · Add styles for bank statement import dialog and file handling
+- `2bb25993` `2026-11-17` **import** · Update bank statement import function to support multiple formats
+- `e51bf9b9` `2026-11-17` Implement fulfillment cases and events for gold flow
+- `6c44e922` `2026-11-17` **select** · Enhance select trigger with custom chevron icon and dark mode support
+- `0674043c` `2026-11-16` **infinite-scroll** · Add useInfiniteRows hook for implementing infinite scroll functionality in tables
+- `526ce137` `2026-11-16` **modal** · Enhance drill panel with responsive design and custom scrollbar
+- `6c5621ea` `2026-11-16` **table** · Implement infinite scroll functionality with loading sentinel in Table component
+- `903d1610` `2026-11-16` **drill-panel** · Add search functionality and replace SidePanel with Modal for improved user experience
+- `a6670158` `2026-11-16` **permissions** · Enforce role grants across pages and lead actions
+- `38b1e9c5` `2026-11-16` **dashboard** · Integrate live API for cash revenue and pipeline metrics in Overview and Dashboard
+- `c4f59174` `2026-11-16` **proxy** · Implement same-origin API proxy for development environment
+- `c87cc3d2` `2026-11-14` **integrations** · Add INTEGRATIONS_ENC_KEY for AES-256-GCM encryption of integration secrets
+- `e575cdcd` `2026-11-14` **guard** · Replace ComplianceSettingsLink with ComplianceSettings component for improved settings management
+- `4bb178e8` `2026-11-14` **load-rules** · Enhance agent selection with clickable rows and improved UI
+- `0e70c8e5` `2026-11-14` **telephony** · Add CRUD routes for telephony queues and inbound routing policies
+- `98dd5673` `2026-11-14` **guard** · Implement service JWT for browser console access
+- `d1999bdd` `2026-11-14` **blueprints** · Add product blueprints management routes and database schema
+- `80c44ae0` `2026-11-14` **telephony** · Implement QueuesPanel with create/edit functionality and member management
+- `557bfd3c` `2026-11-14` **database** · Add tables for absences, phone numbers, telephony routing, and privacy settings with RLS
+- `d2d9d420` `2026-11-14` **guard** · Implement service JWT for browser console access
+- `2700af56` `2026-11-14` Add live routing settings and associated hooks for managing queues and policies
+- `9ce4a69f` `2026-11-14` Implement Live Templates Settings with editor and history management
+- `63c39ce9` `2026-11-14` Add live tenant settings styles, integrate live templates settings, and implement validation tests
+- `52dddaf8` `2026-11-14` Update settings components for live mode and add logo handling utilities
+- `dcbb9134` `2026-11-14` Add recording settings component for live mode with validation and API integration
+- `25e42276` `2026-11-14` Implement live privacy settings and general settings components
+- `f4e6f9cd` `2026-11-14` **privacy-settings** · Implement live privacy settings components and validation logic
+- `34230ed2` `2026-11-14` **phone-numbers** · Implement live phone numbers management with testing and validation
+- `455e4754` `2026-11-14` **integrations** · Implement error handling for integration save and enhance embedded mode support
+- `78a8ac17` `2026-11-14` Enhance guard settings and sentence tester for live mode
+- `6b4178d8` `2026-11-14` **blueprints** · Implement BlueprintEditor, client API, types, and useBlueprints hook for managing product blueprints
+- `cb5e62f5` `2026-11-14` **blueprints** · Implement live settings for product blueprints with CRUD functionality and UI components
+- `7e690c1d` `2026-11-14` **absences** · Add LiveAbsence API client and implement absence management functionality
+- `841afbfc` `2026-11-14` **absences** · Implement AbsencesLiveSettings component with CRUD functionality and UI enhancements
+- `f1818a11` `2026-11-14` **migrations** · Add migration script and drizzle configuration feat(settings): update live paths for settings components feat(gateway): extend GatewayService type to include 'guard' service
+- `99d93040` `2026-11-14` Add pipeline actions beside selection toolbar export
+- `b0b0290c` `2026-11-14` **teams** · Implement member selection in team creation and editing modals
+- `677dbd3e` `2026-11-14` **teams** · Add optional member picker for team creation and editing
+- `ebdd392d` `2026-11-14` **teams** · Enhance createTeam to support optional initial members
+- `3ab77196` `2026-11-14` **teams** · Add members management modal with search and filter functionality
+- `2a224288` `2026-11-14` Enable reusable lead and pipeline table menu actions
+- `4d0dd33b` `2026-11-12` **calendar** · Exclude cancelled appointments from upcoming, today, and week views
+- `8aa30086` `2026-11-12` **calendar** · Add layout tests for appointment lane management and update CalendarPage to handle overlapping appointments
+- `a20305f5` `2026-11-12` **calendar** · Implement ContactAppointmentsTab with appointment listing and booking functionality
+- `76df748e` `2026-11-12` **calendar** · Add agent filter component with search and team view functionality
+- `b29ad854` `2026-11-12` **calendar** · Add registration for calendar module with appointment handling
+- `ea744eb4` `2026-11-12` **tables** · Open filter and grouping menus from applied tags
+- `fb9ae58d` `2026-11-12` **tables** · Add independent group pagination and persistent page settings
+- `41abb5cf` `2026-11-12` Implement due date handling with relative time display and optional lead selection in task modal
+- `657810a9` `2026-11-12` Enhance UploadDocumentModal with drag-and-drop file upload and improved UI elements
+- `7a9a43ae` `2026-11-12` Implement manual file upload feature with associated document handling
+- `fdde1fbb` `2026-11-11` **styles** · Update record layout to include campaign show data-testid
+- `3ff24e44` `2026-11-11` **ui** · Add reusable month collapse controls to timelines
+- `b55c1191` `2026-11-11` Add CRM marketing campaigns functionality
+- `fa1121b6` `2026-11-11` **offers** · Restore document links from history
+- `62d055ec` `2026-11-11` **lead-picker** · Add disabled state to LeadPicker for fixed leads
+- `0d53141b` `2026-11-10` Implement ProjectsTable component for project management settings
+- `0f94fe72` `2026-11-10` **intake** · Implement drag & drop file upload for lead intake
+- `4313284d` `2026-11-10` Implement handling for fresh live workspace projects and enhance admin password reset functionality
+- `8fa5e359` `2026-11-10` **audit** · Add opening audit documentation for lane `opening-list` and `real-vs-mock` comparisons
+- `419317b5` `2026-11-10` Enhance contract package modal with plain language labels and animations for height transitions
+- `5f112546` `2026-11-10` Implement blueprint fallback logic for deals and enhance error handling in contract package modal
+- `c05564c1` `2026-11-10` **tables** · Add clear-all controls to filter and grouping tags
+- `abab611d` `2026-11-10` Add quick-amount chips for one-time and monthly inputs in CreateOfferModal
+- `df5e4e40` `2026-11-10` Enhance CreateOfferModal with footer displaying total, validity, and MOCK price feed
+- `1bc0c21a` `2026-11-10` Add offer action labels and update history display in OfferShowPage
+- `d0c3de91` `2026-11-10` Align numeric input text to the left in pipeline module
+- `add38e4a` `2026-11-10` Update offer actions and improve document preview test descriptions
+- `bee328d8` `2026-11-10` Add file upload preview functionality with support for viewing and downloading uploaded documents
+- `7b3aa8fb` `2026-11-10` Implement returned signed contract upload feature with drag-and-drop support and validation
+- `80845bf4` `2026-11-10` Add script to seed demo Inbox conversations and update package.json
+- `3195be56` `2026-11-09` **ai** · Integrate live mode for AI credits and platform settings
+- `51195295` `2026-11-09` Improve offer creation UI and reduce background API requests
+- `4a5134ed` `2026-11-09` Implement offers seeding for demo tenant and enhance contract validation with product mismatch checks
+- `e7166c5d` `2026-11-09` Replace text placeholders with EmptyState components in WorkspacePage and Notification slots
+- `6c6719b4` `2026-11-09` Enhance contract management by implementing document replacement and improving lead selection UI
+- `3c048275` `2026-11-09` Implement caching for contract templates and enhance document preview handling in live mode
+- `7afc6db0` `2026-11-09` Enhance contract generation with additional fields and improved UI layout
+- `8d1d9ae0` `2026-11-09` **tables** · Add ordered subgroups for multi-value filters
+- `c48fb587` `2026-11-09` Enhance PipelineRevenueWidget with tabs and custom date range selection
+- `c2bfb7e0` `2026-11-06` **tables** · Improve API sorting and search debounce
+- `5c4f760a` `2026-11-06` **tables** · Add API queries, pagination and skeleton loading
+- `be916aab` `2026-11-05` Move Leads filtering and grouping to API
+- `44158ded` `2026-11-05` Add multi-value filters and nested table grouping
+- `55ffdbd6` `2026-11-05` **leads** · Add source filters to duplicate card view - Show group counts and an All sources option - Align table filter chips with the checkbox column
+- `1849ca1a` `2026-11-04` **guard** · Add compliance tabs layout and styling adjustments
+- `4fcf5977` `2026-11-04` **guard** · Implement compliance settings form and sentence tester
+- `f5028475` `2026-11-04` Implement demo mode functionality and improve accessibility
+- `b2265798` `2026-11-04` **leads** · Add inline stage and agent editing
+- `c57584af` `2026-11-04` Update task panel styling and improve cancel task button visibility
+- `ad53e3b6` `2026-11-04` Enhance AI record menu styling for better usability and responsiveness
+- `b0130f41` `2026-11-04` Implement route preloading on link hover/focus; enhance lazy loading and user experience
+- `8d665b85` `2026-11-04` **leads** · Add inline list assignment and compact status stepper
+- `00cebfef` `2026-11-03` Enhance dashboard date range presets and improve dropdown menu animations
+- `aa3dd63d` `2026-11-03` Improve lead editing and refine CRM form layouts
+- `afd432a9` `2026-11-03` Update nav-item styles for improved visual hierarchy and consistency
+- `863e1290` `2026-11-03` Update simulated colleagues behavior in mock mode to prevent cursor movement
+- `6d1ff93b` `2026-11-03` Update sidebar icon colors for improved visual distinction in Twenty palette
+- `723f369c` `2026-11-03` Integrate PageHeaderSlot for improved header layout across multiple components
+- `78ce366e` `2026-11-03` Make a sngle command  for Docker up, down,ps and logs
+
+### Fixes (18)
+
+- `aa2d7b8c` `2026-11-17` **styles** · Update hover background color for selected table rows
+- `7fe8351c` `2026-11-17` **permissions** · Enforce role access across pages, APIs and notifications
+- `6ca5f1de` `2026-11-14` Connect selection toolbar exports to existing CSV handlers
+- `50179957` `2026-11-11` **documents** · Keep file icons consistently sized in document page
+- `bcdbb795` `2026-11-11` **leads** · Display saved records and counts in detail tabs
+- `538bb829` `2026-11-11` Prevent New leads flicker after task updates
+- `565f4e58` `2026-11-11` **intake** · Remove redundant callout messages for live mode and simulation
+- `e8bcf9ef` `2026-11-10` **record** · Adjust table width calculation and update column style for better layout
+- `fe323e7f` `2026-11-10` **pipeline** · Restore converted sale tabs and document access
+- `a2581298` `2026-11-10` Prevent eager contact loading and use page-based pagination
+- `18a9febb` `2026-11-09` Keep table filters open for multiple selections
+- `2312efe7` `2026-11-09` **sidebar** · Align section arrows after labels
+- `99e4e81d` `2026-11-09` Improve API base URL handling for local development
+- `c201c63d` `2026-11-06` **sidebar** · Hide duplicate search button and retain Quick actions
+- `8928e818` `2026-11-04` **prototype** · Restore active card highlight and smooth scrolling
+- `5e5e5630` `2026-11-04` Improve navigation item accessibility and scrollbar styling in Shell component
+- `6bc250d1` `2026-11-03` **prototype** · Restore tab arrows and polish lead status stepper
+- `b4e38040` `2026-11-03` **tasks** · Align task details and close panel on outside click
+
+### Improvements (8)
+
+- `25867f9d` `2026-11-13` Update font sizes for tables and tags to 13px
+- `061df9e9` `2026-11-10` Move contact loading into reusable Zustand-backed hooks
+- `f64082a6` `2026-11-10` Match Quick actions icon colors with sidebar
+- `d539f587` `2026-11-09` Reuse existing collection APIs for table queries
+- `7bff143d` `2026-11-09` Remove unused Docker scripts from package.json
+- `51a6155e` `2026-11-05` Polish table controls and sidebar badges
+- `1bb8505a` `2026-11-04` **settings** · Use full width for settings pages
+- `0e2494ad` `2026-11-04` **leads** · Tighten contact details and activity spacing
+
+<details>
+<summary>Other changes (8) · internal notes and untyped commits</summary>
+
+- `1a58cc1c` `2026-11-18` Fix role permissions and live CRM access
+- `f9695f3e` `2026-11-16` Refactor code structure for improved readability and maintainability
+- `4eb2e33d` `2026-11-12` Refactor platform background sync and entitlements handling
+- `a2bc6008` `2026-11-05` `style(prototype): polish error and not-found screens`
+- `16de8699` `2026-11-04` Improve lead timeline dates and status stepper
+- `2ad549db` `2026-11-04` Refactor module manifests to use lazy loading for components
+- `d61090b3` `2026-11-04` Refactor select components to use custom Select and SearchableMenu; enhance styling and functionality
+- `fb54416e` `2026-11-03` Auto running
+
+</details>
+
+## September 2026
+
+### Fixes (1)
+
+- `3b446d50` `2026-09-23` Include stop reason in sequence-stop webhook effect
+
+<details>
+<summary>Other changes (221) · internal notes and untyped commits</summary>
+
+- `2e66308a` `2026-09-25` P11-LEAD-REMEDIATION: fulfillment REJECT/product REVIEW_PENDING outcomes, p11-fulfillment-fix brief, updated slot handoff, remediation manifest
+- `ce65a006` `2026-09-25` P11-LEAD-REMEDIATION: review dispositions, authorization contracts C4/C5, follow-up briefs (holdings-fix, staff-authz, phone-gaps), concrete Playwright specs, split-vitest policy, slot handoff
+- `82b16fe0` `2026-09-25` P11-LEAD-TEST-GUARD: fix Playwright substring-filter trap in all P11 briefs, correct resource-scheduling evidence language, log holdings VERIFICATION_PENDING + shared-file concerns (HOLD-03..07)
+- `99be6f4b` `2026-09-25` P11-RECOVERY-LEAD: Hermes-crash recovery record (COORD-01 re-verified, main clean), UI-PERF resume brief with absolute-root gates
+- `835e2158` `2026-09-25` P11-LEAD-COORD: dispatch record, provider findings, acceptance matrix, internal-call test contract, integration plan, reviewer briefs + manifest, COORD-01 incident (resolved)
+- `79aad141` `2026-09-25` P11-LEAD: worker manifest (6 lanes, worktrees at 844550a)
+- `844550ac` `2026-09-25` P11-LEAD: P11 plan - authorization section, lane registry/contracts, six lane briefs + common rules
+- `ee690334` `2026-09-25` P10-LEAD: registry final states, acceptance.json, REPORT, progress, provenance after deploy
+- `e0a70eb4` `2026-09-25` P10-QA: post-deploy verification against production (0d4b939 / web 20260925T062808Z-0d4b9399c996)
+- `0d4b9399` `2026-09-25` P10-LEAD: production provenance before deploy
+- `3af11038` `2026-09-25` P10-LEAD: platform-deploy retries the Caddy reload (recreated caddy may not listen yet; the reload is fatal with web)
+- `8638c33d` `2026-09-25` P10-DESKTOP: phone tab bar stays at the bottom with the banner hidden; layout test (320-420 px) and native focus/width check; docs + evidence for the review fixes
+- `e2db0df6` `2026-09-25` P10-REL: docs - step drain + break runbook, post-switch check, stale flat roots, P10-REL-only deploys; fix-round evidence
+- `daabba0e` `2026-09-25` P10-REL: review fix round - step drain lock, break, fatal web switch check, fail-closed checks, /internal edge block
+- `f450cc04` `2026-09-25` P10-CORE: lane note docs/qa/p10/core/README.md (REL-02, CORE-02, DATA-01, K3-K5 findings, root causes, tests, deploy notes)
+- `98d00718` `2026-09-25` P10-CORE: gateway route POST documents /signature-requests/:id/cancel (signature.manage) for lane p10-integrations
+- `2a438b5a` `2026-09-25` P10-CORE: DATA-01 OWN/TEAM sessions get the pipeline / portal signals they are involved in (offer owner, sale owner / attribution, Load agent, portal advisor + contact owner, acting member uuid - key, resolved server-side before streaming); amountCents and free-text reason stripped from streamed payloads
+- `aa59a4d0` `2026-09-25` P10-CORE: REL-02 overall dependency deadline (CONTACT_DEPENDENCY_DEADLINE_MS, 20 s) keeps unverified batches (fail closed); non-numeric CONTACT_DEPENDENCY_BATCH falls back to 200 (NaN failed open), capped at 250; CORE-02 single DELETE /v1/contacts/:id cascades the soft-delete of the contact's leads and tasks like bulk (no live flow sends it for duplicate link: merge is /v1/duplicates/merge)
+- `5666555c` `2026-09-25` P10-CORE: DATA-01 reload cost - single-flight hydrate (requests while one runs coalesce into one follow-up), signals caused by this tab's own command are skipped once the tab re-loaded after it (event correlation id = the request's), 0-1500 ms jitter on the signal debounce, load.assigned in TENANT-scope sessions refreshes the pipeline only
+- `a632608b` `2026-09-25` P10-INT: payments GET /gold/spot allow-lists metal and currency
+- `0f2f8b0d` `2026-09-25` P10-INT: comms webhook router answers 502 only for retryable CRM emit failures
+- `8d9c6095` `2026-09-25` P10-INT: comms CRM event emit gets a configurable timeout (AbortSignal.timeout, default 10s)
+- `e7ab49d4` `2026-09-25` P10-UI: browser tab title - HeroCloud (drop internal/MOCK naming from production title)
+- `ea726de1` `2026-09-25` P10-UI: only the topmost open Modal traps Tab, so nested ConfirmDialog works
+- `e2ebc5f0` `2026-09-25` P10-UI: catch a failed jsPDF chunk load and toast instead of a dead button
+- `19d5f7f9` `2026-09-25` P10-UI: scope dev-server fs.allow to the main checkout's node_modules only, and only from a worktree
+- `4cddc426` `2026-09-25` P10-DESKTOP: review fixes: site-access auto-retry capped at 3, webview focus on show after a hidden start, docked minimum 640 px (half-screen snap), update restart re-checks the call, one quit prompt, no double CRM reconnect on sign-in
+- `94f2b276` `2026-09-25` P10-DESKTOP: docs/desktop.md P10 (0.3.1) lifecycle section + verification; native evidence screenshots
+- `eb63cfad` `2026-09-25` P10-DESKTOP: DESK-08 via webview focus only (window focus flag made tao un-maximize on restore)
+- `dc3794a1` `2026-09-25` P10-DESKTOP: started hidden (--minimized/autostart) the app no longer takes the keyboard focus (DESK-08)
+- `ffb284a9` `2026-09-25` P10-DESKTOP: docking the phone into a narrow window grows it to the docked minimum (no CRM strip)
+- `df99578f` `2026-09-25` P10-DESKTOP: docked phone keeps 380 px (min window 860 when docked), min size never un-maximizes a restored window, phone tab bar in one row; native restore/startup scripts, guarded clicks, tray via UIA invoke
+- `feaa6e91` `2026-09-25` P10-CORE: REL-02 circuit breaker - after a failed dependency batch the remaining batches of that service are kept unverified without further calls (one timeout per service at most)
+- `350759dc` `2026-09-25` P10-CORE: CORE-02 bulk delete also soft-deletes the contact's inquiries (leads) and tasks, like the mock CASCADE; GET /v1/leads and /v1/tasks no longer list rows of deleted contacts. Single delete (duplicate link) keeps them: the sync re-points them right after.
+- `e1a4fae2` `2026-09-25` P10-INT: notes: I4 results, production env names, open items
+- `d057cb3a` `2026-09-25` P10-INT: I4 booking: health degraded when Cal.com/provisioning missing, no-show and empty Cal.com answers not reported as success
+- `a389b862` `2026-09-25` P10-INT: I4 assistant: provider error bodies/mid-stream errors raise, unconfigured provider refuses, health/complete label mock
+- `ffafe09d` `2026-09-25` P10-INT: I4 documents/payments: MOCK OTP and SEPA pre-notification never reported as sent
+- `3ad658d0` `2026-09-25` P10-INT: I4 comms: honest health (placeholder webhook secrets, half-set SES key), Gmail sync failures surfaced, no ephemeral token key in production
+- `9abc7609` `2026-09-25` P10-REL: evidence - compose build labels do not recreate containers
+- `9a8b5b82` `2026-09-25` P10-UI: W1/W2/W3 evidence and issue writeup (UI-01/UI-02/UI-03)
+- `1b2e943b` `2026-09-25` P10-UI: UI-03 allow the dev server to see the main checkout node_modules from a git worktree
+- `cc149166` `2026-09-25` P10-UI: UI-02 dynamic-import jsPDF instead of bundling it into the main chunk (W3 perf)
+- `bb493def` `2026-09-25` P10-REL: evidence.md UTF-8 repair (no BOM, no mojibake)
+- `b1294540` `2026-09-25` P10-UI: UI-01 Modal keyboard focus trap + focus-return-on-close (W2 a11y)
+- `ff157b3b` `2026-09-25` P10-REL: nested entry points inherit the parent's deploy lock (one lock for a whole release sequence), bash + node; tests + docs
+- `dbdefcf3` `2026-09-25` P10-REL: deployment docs (release safety, runbook, restore plan, MinIO image recovery) + lane evidence
+- `f30cde50` `2026-09-25` P10-DESKTOP: Cargo.lock for 0.3.1
+- `38cf9adb` `2026-09-25` P10-DESKTOP: reopen keeps hidden/popped-out phone + main focus (DESK-02), usable CRM width next to a docked phone, handoff ignores other-server sessions (DESK-04), cargo test --workspace on Windows (DESK-05), tray status symbols (DESK-06), CRM no longer stuck on site-access/offline page after reopen (DESK-07), quit/update during a call confirmed/refused; 0.3.1
+- `16ae4e26` `2026-09-25` P10-REL: never serve release metadata (.release.json/.own-assets) from the web roots
+- `9e4e228f` `2026-09-25` P10-CORE: K4/K5 tests - delete tenant/scope/role negatives, gateway never routes /internal; Opening attribution, history and the distinct Load assignment survive bulk transfer, Load re-assignment and delete attempts
+- `fdae8994` `2026-09-25` P10-REL: git provenance via cd (native git + cygwin paths), Windows-safe temp file in image check, server no-op lock contention test
+- `42cda392` `2026-09-25` P10-CORE: K3 regression tests for refused / rapid / concurrent live mutations and the refused contact delete (409)
+- `31b3ac7b` `2026-09-25` P10-QA: baseline QA scripts + LIVE evidence (route sweep, tenant isolation, fixtures, portal read-only check)
+- `852dea08` `2026-09-25` P10-CORE: DATA-01 second sessions see bulk, pipeline, portal and metadata changes
+- `ea13fdd5` `2026-09-25` P10-INT: notes: DocuSeal completed-submission guard
+- `e962eafa` `2026-09-25` P10-INT: INT-04 DocuSeal cancel refuses to archive an already completed submission
+- `276a30d4` `2026-09-25` P10-DESKTOP: native Win32/UIA lifecycle harness; baseline evidence on installed 0.3.0 (12 close/reopen cycles, DESK-02 repro)
+- `7574d3bd` `2026-09-25` P10-INT: lane evidence notes (Twilio account inactive finding, INT-01..04, health checks)
+- `dc8279e0` `2026-09-25` P10-REL: local tests for deploy lock contention/crash/fencing, web releases, backup verifier
+- `4eb7c7f5` `2026-09-25` P10-REL: image-backup.sh (registry availability check, docker save/verify/restore of unpullable MinIO images)
+- `52d98133` `2026-09-25` P10-REL: build provenance (OCI revision/created labels, releases.log, SOURCE_REVISION) + read-back script
+- `feaeb65d` `2026-09-25` P10-REL: verify-backup.sh (read-only archive check: MANIFEST, gzip, dump-complete trailer, volume tars); pre-deploy backup gate
+- `8be53d22` `2026-09-25` P10-REL: atomic versioned web releases (current symlink swap, previous hashed assets carried over, missing /assets 404, rollback) for app + website; Caddy legacy fallback
+- `4d2bce35` `2026-09-25` P10-REL: exclusive production deploy lock (flock held by a live SSH holder, fenced remote steps) for platform/website/telephony deploys and desktop feed publication; per-run staging dirs
+- `571b4bb3` `2026-09-25` P10-INT: INT-03 comms webhooks: per-event tenant resolution (campaign_links / mail_accounts / messages / WHATSAPP_TENANT_MAP), quarantine instead of DEFAULT_TENANT_ID with platform-wide safety suppression, atomic claim + DB effects in one tx, resumable CRM emit
+- `a113d565` `2026-09-25` P10-INT: INT-04 documents: cancel signature request (DocuSeal submission archived first, idempotent, audited+emitted); cancelled links refuse OTP/decline
+- `a1be815c` `2026-09-25` P10-CORE: REL-02 contact delete keeps leads linked in documents/payments, fails closed
+- `4dc27f90` `2026-09-25` P10-INT: INT-02 gold price: stale last-good preferred over MOCK, MOCK demo labelled and never persisted, single-flight, per-currency cache, failure backoff = TTL (quota), assertSpotBookable guard
+- `5f75f193` `2026-09-25` P10-INT: INT-01 Twilio probe reports connected/partial/error truthfully (inactive account 20003, rejected key 70051, key-rejected+token-ok = partial)
+- `436da0aa` `2026-09-25` P10: mission brief, overview, issue registry; migration watermark 0027 (next 0028), stale Phase 1 brief flagged
+- `4021244b` `2026-09-25` DNS-SACHWERTHAUS: Caddy placeholder site for sachwerthaus.de
+- `676266fc` `2026-09-25` METALS-LIVE: gold price switched from MOCK to the live metals.dev feed
+- `5762de9c` `2026-09-25` TELEGRAM-SWITCH: production Telegram bot moved from @goldplan1_bot to @herocloudapp_bot
+- `1d4ad0ea` `2026-09-25` P8 final deploy: progress note, live QA screenshots (docs/qa/p8/final), portals QA waits for the detail page
+- `43db685a` `2026-09-25` DOMAINS-DEPLOY: production rollout docs, prod check script (14/14), live price screenshots
+- `5c711674` `2026-09-25` DOMAINS-DEPLOY: services/domains production-ready (live Dynadot reads, sandbox mode, gateway, compose)
+- `67f2caad` `2026-09-25` P8 final: remaining "contact(s)" audit summaries say "lead(s)"; time-independent task notification test
+- `709653c8` `2026-09-25` P8 final: live bulk report shows the server result, portal banner hides on End session, Client portals/Integrations not "Demo data"; QA scripts match the fixed product
+- `24beac7e` `2026-09-25` QA-LEAD: rounds 2-3 + final verification (docs/qa), progress
+- `6af00fa7` `2026-09-25` P8-FIX-PIPELINE: offer history, document status, sale offer, permission states, inbox links
+- `9689e13c` `2026-09-25` P8-fix-inbox: resolve the real tenant for inbound Campaign-replies webhooks
+- `950aa911` `2026-09-25` P8-FIX-INFRA: stop platform-deploy.sh pulling archived MinIO images
+- `391dd349` `2026-09-25` QA-FIX-14: mobile nav drawer no longer closes itself on a legacy-URL redirect
+- `f078ffc8` `2026-09-25` P8-QA-LEADS: live QA of Leads rename + bulk actions on production
+- `5a650d73` `2026-09-25` P8-QA pipeline: QA script probes the owner change only when asked (the unfixed api accepts it)
+- `0e5b66a7` `2026-09-25` P8-QA pipeline: live QA of Leads - Offers - Opening - Load in production + fixes
+- `724c1f06` `2026-09-25` P8-QA-INBOX: live QA of the Missive inbox; tenant-wide shared mailboxes, offer titles, readable system lines, comment mentions in live mode
+- `e683ff2f` `2026-09-25` P8-QA-PORTALS: live QA of Client portals + Log in as client (2 bugs fixed)
+- `5b3b09f4` `2026-09-25` P8-QA shell: live QA of design, sidebar, popovers, Home on production + 2 fixes
+- `9a1596aa` `2026-09-25` P8-QA-CALLS-INT: live QA of Calls inline player + Integrations page (fix Twilio test connection)
+- `1f9de844` `2026-09-25` Ctrl+K listener test uses fewer navigations (full-suite timeout)
+- `6b2f4c23` `2026-09-25` QA-FIX-13: Demo data chip renders inline instead of overlaying the sticky table footer; row-nav effect leak fixed so Ctrl+K keeps working after many navigations
+- `c84e4157` `2026-09-25` QA-FIX-12: live sync round 3 - reconcile unknown-outcome creates, single New-deal POST, platform badge, Teams refresh, audit 403
+- `253d1ac9` `2026-09-25` P8-DEPLOY: progress note (backup, migrations 0021-0027 verified, fixes, production QA)
+- `893c9044` `2026-09-25` P8-DEPLOY: no mock pipeline seed in live mode (production Offers showed the seed's offers next to the server's, Load showed 3 mock rows)
+- `95806749` `2026-09-25` P8-DEPLOY: live /v1/sales mapping keeps the converted-sale fields (Opening/Load lists were empty in production)
+- `5bc81797` `2026-09-25` P8-INTEGRATION: screenshots refreshed by the full mock e2e run on the integrated UI
+- `03a70300` `2026-09-25` P8-INTEGRATION: t6-1/t6-2 follow the P8 pipeline (/sales and /deals open the Opening list; offer stages live on Offers)
+- `b6de5373` `2026-09-25` P8-INTEGRATION: '/' opens Quick actions only when the page does not handle it (mail search keeps '/'); mail lead-card overlay starts below the (wrapping) action bar so its toggle stays clickable
+- `dc72c1bd` `2026-09-25` P8-INTEGRATION: e2e fixes by root cause - int-1 uses W3's bulk Transfer and accepts the Opening 'Fulfilment' group; Opening list keeps the P4 collab presence bar (sales list regression); sale page shows the intake link as 'Inquiry' (duplicate 'Lead' key)
+- `48bbfb44` `2026-09-25` P8-INTEGRATION: keep the 0014-0019 placeholders byte-identical to production (CLAUDE.md migration rule: never edit 0000-0020)
+- `f366a292` `2026-09-25` P8-INTEGRATION (W8 leftovers): final Contacts - Leads copy sweep of user-visible strings (prototype, api notifications, demo-activity seed); intake object shown as Inquiries; specs/tests updated
+- `b9bab450` `2026-09-25` CLAUDE.md: migration numbering rule (prod at 0020)
+- `fa7553e2` `2026-09-25` P9-RELEASE: deploy api/website/desktop 0.3.0, live QA, Local Network Access fix
+- `5296d4c9` `2026-09-25` QA round 2: re-test screenshots (docs/qa/*/round2)
+- `830924b5` `2026-09-25` P8-INTEGRATION: W7 deploy wiring + workspace purge covers P8 data
+- `0b28950f` `2026-09-25` P8-INTEGRATION: comms shared-inbox mail.threadAssigned / mail.commentAdded mentions become api notifications (fanout); mock test proves mail.threadLinked - offer link
+- `6af2cb09` `2026-09-25` P8-INTEGRATION: Load agents can open their lead records (api crm/contacts + bulk: canSeeRecord with id, primeLoadVisibility); test in migrations-p8
+- `b7275168` `2026-09-25` P8-INTEGRATION: links go to /leads (sidebar saved views, nav, Shell, CommandMenu, ui/crm, metadata objects, Home, mail card, calls, client portals); RecordIndexPage selectionExport prop hides the generic MOCK export on Leads; t6-1/p4-mail accept /(contacts/leads)/
+- `b2d92828` `2026-09-25` QA-FIX-11: fix timezone-inconsistent "gestern" search + deterministic seed export test
+- `3d13a056` `2026-09-25` P8-INTEGRATION: portal.accountUpdated gains change 'SETTINGS' (W4 contract request), emitted by mock + api settings edits; tests
+- `62e4171a` `2026-09-25` P8-INTEGRATION: renumber P8 migrations to 0021-0026 after production head 0020
+- `6de21015` `2026-09-25` QA-FIX-10: mail j/k race - stale route render no longer pulls the cursor back
+- `052769e8` `2026-09-25` P8-INTEGRATION: fix TS2774 in pipeline.live.test after W2 merge
+- `b84e1272` `2026-09-24` P8 W5 Inbox: Missive-style shared inbox over every connected mailbox
+- `0ef856b6` `2026-09-24` P9-INTEGRATE: website handles 202 pending-confirm handoff; Caddy edge CORS for herocloud.io
+- `da37e29d` `2026-09-24` P8 W1 Shell: Attio design, customizable server-saved sidebar (no Favorites), portalled popovers, Home + Dashboard
+- `c02c90d6` `2026-09-24` P8 W2 pipeline (2/2): mock API + seed + register (Load visibility, signature/payment/mail listeners), live client, pages /offers /opening /load /settings/load-rule /offers/report, Home widgets, bulk actions, /sales+/deals aliases, E2E p8-pipeline + screenshots
+- `2edd9155` `2026-09-24` QA-FIX-8: live sync never drops unsent creates/edits across reloads; flush on page exit; no booking replay creates; reload revalidates; mutations invalidate in-flight GETs
+- `3642029c` `2026-09-24` P8 W4 client portals: /client-portals list (inline edit) + detail, invites, Log in as client impersonation
+- `35e665be` `2026-09-24` QA-FIX-9: demo badge overlap, warmup defaults race, compliance-before-window, invite title placeholder, api_ip limit
+- `09ad72f6` `2026-09-24` P9-DESKTOP: account-switch confirmation for website sign-ins (login-CSRF guard)
+- `9b99d6f9` `2026-09-24` P8 W3 Leads: Contacts - Leads rename, /leads routes + /contacts,/people aliases, bulk-action framework + 7 actions, CSV export
+- `efcf5ee2` `2026-09-24` P8 W7: Integrations hub (19 providers, encrypted server-side secrets, read-only live tests)
+- `054cd685` `2026-09-24` P8 W8: Copy: Contacts-Leads rename in guides + unowned prototype folders, Telegram bot texts + find_lead/lead_summary aliases
+- `00e55fbe` `2026-09-24` P8 W6 Calls: inline list player (play/seek/speed/keyboard), row-expand transcript+summary, softphone pop-out geometry
+- `3b6ae225` `2026-09-24` P8 W2 pipeline (1/2): contracts rules, API offers/Opening/Load/rule/report, migrations 0014/0015 (backfill, permanence trigger, RLS) + real snapshots, tests
+- `dade654a` `2026-09-24` P9-DESKTOP: direct login, website handoff, session restore (HeroCloud 0.3.0)
+- `5f158cf8` `2026-09-24` P9-WEB website: HeroCloud marketing site, /login and /login/choose (apps/website)
+- `642e501a` `2026-09-24` P8 S0: slot shim (permissions, events, contract slots, mock tables, visibility hook, manifest discovery, api p8 routes, migration slots 0014-0019)
+- `8dca3ee3` `2026-09-24` P9-API: Google sign-in (OIDC + PKCE), one-time desktop login codes, desktop prefs, website CORS
+- `693a781d` `2026-09-24` P8 ATTIO-SPEC: measured Attio design spec (tokens, sidebar without Favorites, components, Missive inbox) + reference captures
+- `451c2c91` `2026-09-24` P8 design: PIPELINE-SPEC (offers/opening/load model, state machine, RBAC, events, endpoints, migrations 0014-0019, rename, sidebar layout, portal impersonation) + P8-WORKSPLIT (8 parallel streams, S0 slot shim, ownership, merge order)
+- `046da5cf` `2026-09-24` P9-WEB: brief + shared contract (website, login, chooser, desktop handoff)
+- `3dd4bc4e` `2026-09-24` QA round 1: findings + screenshots (docs/qa), comms test timeouts for PGlite cold start
+- `0f4fa295` `2026-09-24` QA-FIX-6: honest live-mode statuses, teams settings, role delete, misc bug fixes
+- `d1169873` `2026-09-24` QA-FIX-5: portal service-request resolution, mobile header overflow, portal 202 verification, Telegram webhook 500
+- `7d6493e8` `2026-09-24` QA-FIX-4: mail composer defaults to a stale/foreign mailbox; oversized error toast at 390px
+- `a60e582f` `2026-09-24` QA-FIX-3: stuck calls no longer block the softphone; test extension 105
+- `a72b10af` `2026-09-24` QA-FIX-1: edge rate limit per real client, retryable GETs, no silent data loss, lighter live shell, telephony gate
+- `8ed4f2fc` `2026-09-24` QA-FIX-2: live sync keeps pending local edits across refreshes; refused creates dropped once; cancel closes modal
+- `e8ba2e4f` `2026-09-24` QA-FIX-7: contact AI tab (summary, AI attributes, meeting brief, call summary) on services/assistant in live mode
+- `4876ccc4` `2026-09-24` Ai re-processing fix, guides (Telegram + transcription live, HeroCloud all-in-one desktop), progress/deployment
+- `fcef5c2d` `2026-09-24` Production fixes found in the live QA pass
+- `6414787b` `2026-09-24` P7-WARMUP: mailbox warm-up in the CRM menu
+- `3ad274ec` `2026-09-24` INT-6: live Settings  Telegram, Uptime Kuma alerts to the owner's Telegram
+- `345f0ec7` `2026-09-24` INT-6: telephony stops recordings on abnormal call end; durable telephony-ai hand-off
+- `3931e415` `2026-09-24` P5-DESKTOP-AIO: HeroCloud all-in-one desktop (CRM + phone), SSO, auto-update, short-lived SIP creds, device management
+- `9cd6ff1e` `2026-09-24` P6-TELEGRAM-PLUS: Telegram bot covers the whole CRM
+- `85dcdd1e` `2026-09-24` P5-GUIDES: user guides
+- `b4238434` `2026-09-24` P5-DESKTOP-AIO: robust desktop marker, SSO web session is 'This device', version 0.2.0, CredDeleteW in e2e
+- `927679ab` `2026-09-24` INT-4: production rollout of assistant, guard, telegram, realtime, booking, DocuSeal, MinIO, live recording pipeline
+- `de3a1775` `2026-09-24` Gold project default caller ID = US local number (toll-free is inbound only)
+- `d2e7c173` `2026-09-24` INT-4: web phone/api handle members without an extension (no 404 noise), smoke fixes
+- `2c6418c2` `2026-09-24` TEL-FIX: production e2e 28/28, voicemail beep fix, call.failed on the live stream, DTMF for keypad calls, docs
+- `fd718e1f` `2026-09-24` INT-4 WIP: DocuSeal template + setup, recording proof, full production smoke, ai schema upgrade, booking sync gating
+- `6cd1f048` `2026-09-24` TEL-FIX: web CRM softphone, graceful call failures, stale-channel reaper
+- `9b31e220` `2026-09-24` INT-5: merge P5 live CRM, tenants, portal; migrations renumbered 0007+
+- `0dc50fbf` `2026-09-24` INT-4 WIP: proxies, service wiring, prod compose/Caddy/deploy for assistant, guard, telegram, realtime, booking, DocuSeal, MinIO
+- `5191a46b` `2026-09-24` P5-DESKTOP-AIO (wip): re-register after revocation, e2e re-sign-in
+- `849b98a1` `2026-09-24` P5-DESKTOP-AIO (wip): installer migration + autostart page, update publishing, e2e tests, docs
+- `4d792d97` `2026-09-24` P3-POLISH: Twenty baseline review fixes, screenshots, full e2e green
+- `61495307` `2026-09-24` P5-DESKTOP-AIO (wip): all-in-one shell, SSO handoff, device management, short-lived SIP credentials
+- `144fea7c` `2026-09-24` P5-LIVE-SERVICES: service auth, documents/payments/comms/mail/ai wired live, Instantly adapter, credits hookups
+- `8dc3f70e` `2026-09-24` P5-LIVE-CRM: leads, tasks, calendar, notifications, call log, admin settings live
+- `368b4126` `2026-09-24` P5-TENANTS: platform console, tenant lifecycle, invites/onboarding, plans, white-label basics
+- `e5ad3927` `2026-09-24` Portal v2: re-integrate DocuSeal signing and booking card
+- `e2e2329f` `2026-09-24` P3-POLISH: Attio-clean theme, provider logos, full CRM navigation, Mobbin top-30
+- `c3ed411f` `2026-09-24` P5-PORTAL-LIVE: update docs/progress.md
+- `b53d31ce` `2026-09-24` P5-PORTAL-LIVE: customer magic-link login, customer-scoped live portal data, service requests
+- `c1f5fcbd` `2026-09-24` P5-LIVE-CRM (1/2): services/api leads + intake + duplicates, tasks, calendar + booking events, notifications fan-out, call log, admin settings, KPIs, role-scope RLS
+- `f19b11a1` `2026-09-24` INT-3: merge go-live with P3/P4, desktop softphone API live, telephony fixes
+- `0d7dd828` `2026-09-24` Portal v2: re-integrate DocuSeal signing and booking card
+- `6d3f3eb3` `2026-09-23` P3-MOBBIN-2: real Mobbin references + revised addendum
+- `3d3a774b` `2026-09-23` P4-MAIL: Outlook-style unified inbox, reading pane, rich composer, IMAP adapter
+- `e1c02f5a` `2026-09-23` P3-RESKIN: Design System v2 applied across CRM and portal
+- `8b8f9c15` `2026-09-23` P4-GUARD: compliance policy engine, live call/email monitoring, auto-lock, admin alerts
+- `b0ec488c` `2026-09-23` P3-MOBBIN: Mobbin pattern research + DESIGN-v2 addendum
+- `de6d015e` `2026-09-23` P4-ASSIST: LLM gateway, AI credits ledger, Ask AI, AI attributes, summaries
+- `f997705e` `2026-09-23` P4-COLLAB: realtime presence, live cursors, live updates, collaborative notes
+- `022af70d` `2026-09-23` P3-BOOKING: Cal.com scheduling integrated with CRM calendar, email, portal
+- `9459b7e8` `2026-09-23` P4-RECSEARCH: recording storage, auto-transcription pipeline, ask-about-calls with citations
+- `372442dd` `2026-09-23` P4-TELEGRAM: Telegram bot notifications + NL CRM control with confirmations
+- `92a39e01` `2026-09-23` P3-ESIGN: DocuSeal self-hosted e-signature adapter, evaluation, portal embedding
+- `5e62e22f` `2026-09-23` P3-DESIGN: fintech/gold design research, Design System v2 spec + tokens + preview
+- `42af954f` `2026-09-23` INT-2: go-live: services on api.herocloud.io, telephony on voip.herocloud.io, live-mode frontend
+- `2d018dae` `2026-09-23` P3-DESKTOP: Tauri desktop softphone, CRM link, hardening, per-user installer
+- `467a1dd7` `2026-09-23` P3-DOMAINS: update docs/progress.md
+- `7fa7a3a6` `2026-09-23` P3-DOMAINS: Dynadot registrar (approval-gated), Cloudflare DNS, mail-DNS templates, health checks
+- `4b6b5eb9` `2026-09-23` Make send-pipeline tests clock-independent
+- `8156627f` `2026-09-23` P3-GMAIL: Gmail OAuth connect, send, incremental sync, contact linking
+- `b9a02727` `2026-09-23` P2-OPS: production compose, Caddy TLS, deploy script, backups, monitoring; app.herocloud.io live (demo)
+- `485ad693` `2026-09-23` P2-TEL: telephony service, Asterisk config, Browser-Phone fork + CRM bridge
+- `d3ddd174` `2026-09-23` P2-DOCS: document rendering, versioning, in-house e-signature, postal flow
+- `ece9032a` `2026-09-23` P2-AI: local transcription (faster-whisper), PII redaction, hybrid transcript search
+- `9065a4bb` `2026-09-23` INT-1: integrate T06 streams + comms; wire power-table into all objects
+- `e0c0f59f` `2026-09-23` P2-PAY: statement import, reconciliation, SEPA, gold price, holdings ledger
+- `9f807f05` `2026-09-23` P2-CORE: compiled container build (esbuild bundle, multi-stage Dockerfile)
+- `95a3788a` `2026-09-23` P2-CORE: API foundation (tenancy/RLS, auth, audit, outbox, custom fields, query engine)
+- `14e4af05` `2026-09-23` CLAUDE.md: Phase 2 (UI approved), secrets policy; P2-TEL: Twilio Elastic SIP + VPS deploy
+- `ce008c5c` `2026-09-23` T06-1: power-user UI framework
+- `9ca70155` `2026-09-23` P2-COMMS: comms service, provider adapters, webhooks, suppression
+- `51f901f6` `2026-09-23` T06-3: calendar, appointments/meetings, full notifications system
+- `da67db9c` `2026-09-23` T06-2: contacts restructure (leads + customers), Sales, Agent, lists, duplicates
+- `0d5a3813` `2026-09-23` ADR-0006: own backend behind approved UI (Postgres RLS); P2-CORE brief
+- `5683d553` `2026-09-23` Phase 2 briefs: telephony service, comms service
+- `4bc32c1e` `2026-09-23` T06 brief (feedback round 1: restructure, power-user UI, calendar/notifications)
+- `3de38573` `2026-09-23` T05-A: flows 1-7, 18, 22, 23 end-to-end (leads + telephony)
+- `fdab8a82` `2026-09-23` T05-B: flows 8-17 end-to-end (sales, backoffice, customer portal)
+- `88be022d` `2026-09-23` T05-C: flows 19, 20, 21, 24 + campaign mgmt, audit, privacy end-to-end
+- `a9dd6a63` `2026-09-23` ADR-0005: softphone base = Browser-Phone (SIP.js), licensing irrelevant (private use)
+- `a0c2ede8` `2026-09-23` T04: Attio-level readability, Twenty fidelity pass, fixes
+- `9007a058` `2026-09-23` ADR-0005: telephony as separate service, browser softphone first (SIP.js/JsSIP), trunk at Asterisk
+- `66ac653f` `2026-09-23` T05 brief (flows end-to-end, 3 streams)
+- `b88360a8` `2026-09-23` T04 brief + Attio reference
+- `8829f8e6` `2026-09-23` T01: Twenty-style UI kit, seed v2, all module pages (unverified by agent; 1 TS error pending)
+- `706cbf69` `2026-09-23` T02: domain engines + tests
+- `5e117600` `2026-09-23` T03: German template drafts (documents + messages)
+- `c429e11b` `2026-09-23` Task T01 brief + reference screenshots; shoot.mjs
+- `c6133487` `2026-09-23` Contracts, mock backend core, seed, Twenty-style UI kit, shell, module stubs
+
+</details>

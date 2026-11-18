@@ -1,0 +1,24 @@
+---
+title: "Team & roles"
+description: "Invite members and control what each role is allowed to do."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Admins manage workspace members, teams and role permissions. Route: `/settings/members`; roles are at `/settings/roles`, teams at `/settings/teams` and projects & brands at `/settings/projects`. The role page has a permission matrix and an "act as" preview.
+
+## What works with the real API
+- Members, roles, teams and projects load from `/v1/settings/*`.
+- Creating or editing roles, teams and members, and deleting roles or teams, are sent to the same API.
+- Inviting a member uses `POST /v1/invites` and respects the plan's seat limit.
+
+## Not finished yet
+- In demo mode invitations are simulated (MOCK, no email sent).
+- The permission matrix and the "act as" role preview are driven by the local store; whether every toggle is enforced server-side is not verified.
+- Changes sync through a queue, so the page is optimistic rather than request-by-request.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Team & roles](/shots/team-roles/main-light.png)</TabItem><TabItem label="Dark">![Team & roles](/shots/team-roles/main-dark.png)</TabItem></Tabs>

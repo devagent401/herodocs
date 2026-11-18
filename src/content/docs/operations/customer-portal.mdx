@@ -1,0 +1,26 @@
+---
+title: Customer portal
+description: "The customer-facing portal where clients see orders, gold, documents and profile."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Customers sign in with a magic link or code and see their own data. It is a separate bare page, not part of the CRM shell. Route: `/portal`, with sub-pages `/portal/buy`, `/portal/documents` and `/portal/profile` (menu: Overview, Buy gold, Documents, Profile). Staff can hide sections per client.
+
+## What works with the real API
+- Sign-in by magic link or one-time code, session check and logout (also on all devices) use the portal auth routes of the api service.
+- Profile, advisor, orders, holdings, documents, signatures and service requests load from `/v1/portal/*`.
+- Profile changes are sent as change requests. Service requests can be created.
+- Staff impersonation shows a banner and is read-only.
+
+## Not finished yet
+- Demo mode shows the older mock portal.
+- Profile changes are requests for staff to approve, not direct edits.
+- The Buy page uses a MOCK price feed (held 30 seconds) and only sends an order or savings-plan request to the advisor. No order is booked and no money moves.
+- Mail delivery of magic links: not verified.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Customer portal](/shots/customer-portal/main-light.png)</TabItem><TabItem label="Dark">![Customer portal](/shots/customer-portal/main-dark.png)</TabItem></Tabs>

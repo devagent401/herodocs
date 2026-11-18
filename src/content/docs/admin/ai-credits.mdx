@@ -1,0 +1,27 @@
+---
+title: "AI & credits"
+description: "Check your AI credit balance, buy credits and control which AI features your workspace may use."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+AI features (summaries, AI attributes, Ask AI) are paid in credits. This page shows the balance, usage and ledger, and lets admins set limits. Route: `/settings/ai-credits`. Everyone with the AI permission can view it. Buying needs the credit-purchase permission.
+
+## What works with the real API
+- Loads the balance, ledger and usage by day, user and feature from the assistant service.
+- Loads the price list from the assistant service.
+- Saves the AI controls (kill switch, per-feature toggles, monthly cap) through the assistant service.
+- Starts a credit purchase after you confirm the price, and records the order on the server.
+
+- Platform owners also get an AI platform billing page at `/ai/platform` (workspaces, credit grants, price list). In live mode it loads from the assistant service.
+
+## Not finished yet
+- Payment is a MOCK checkout: the "Pay (MOCK)" button books the credits without real money. The real Stripe checkout needs the Stripe key to be configured. Not verified against a live Stripe account.
+- In demo mode the whole page runs on the in-browser store.
+- The credit price in euros is shown as a fixed retail rate, labelled MOCK billing.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![AI and credits page](/shots/ai-credits/main-light.png)</TabItem><TabItem label="Dark">![AI and credits page](/shots/ai-credits/main-dark.png)</TabItem></Tabs>

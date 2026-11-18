@@ -1,0 +1,1 @@
+[{ "name": "main", "path": "/calendar", "waitFor": "Today" },{ "name": "month", "path": "/calendar?view=month", "waitFor": "Today" },{ "name": "agenda", "path": "/calendar?view=agenda", "waitFor": "Agenda" }]

@@ -1,0 +1,28 @@
+---
+title: "Leads"
+description: "Every person the team works on: new leads, customers, intake, lists and duplicates."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Leads is the main table of people. Agents and team leads use it to see new leads, customers and saved lists, and to clean up duplicates. Views: All leads, Stage: Lead, Customers, Qualified, My leads, New & unassigned and Hot (score 75+). A lead opens at `/leads/:personId` with tabs for Timeline, Sales, Offers & signatures, Tasks, Appointments, Notes, Calls, Emails & WhatsApp, Documents and Payments & gold. Route: `/leads` (old `/contacts` and `/people` links redirect here).
+
+## What works with the real API
+- Loads leads and tasks from the core API (`/v1/leads`, `/v1/tasks`) and saves edits and deletes back to it.
+- Inquiry intake (`/leads/intake`): in live mode a pasted payload is sent to the server intake (`/v1/leads/ingest`) and a CSV to `/v1/leads/import`, with duplicate check and routing.
+- Duplicates (`/leads/duplicates`): Merge and Keep separate call the server (`/v1/duplicates/merge`, `/v1/duplicates/dismiss`).
+- Lists (`/lists`): lists and their members load and save through `/v1/lists` endpoints.
+- Sub-views such as `/leads?view=new` (New & unassigned) and `/leads?view=customers` (Customers) are filters of the same table.
+- Lead record: related offers, signatures, documents and activity load from the server in live mode.
+
+## Not finished yet
+- Intake is a simulator: it takes a pasted payload, it does not receive real Meta, Google, website or Gmail webhooks by itself (the page is labelled MOCK in demo mode).
+- Call sessions from lists and the live-routing accept timer are in-browser logic; server side not verified.
+- Some record tabs (calls, payments and gold, sequence, routing trail) use the local store; not verified against the API one by one.
+- Calling from a lead record is labelled MOCK in the page; real calls go through the Calls page stack.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Leads page](/shots/leads/main-light.png)![Intake](/shots/leads/intake-light.png)![Duplicates](/shots/leads/duplicates-light.png)![Lead record](/shots/leads/record-light.png)</TabItem><TabItem label="Dark">![Leads page, dark](/shots/leads/main-dark.png)![Intake, dark](/shots/leads/intake-dark.png)![Duplicates, dark](/shots/leads/duplicates-dark.png)![Lead record, dark](/shots/leads/record-dark.png)</TabItem></Tabs>

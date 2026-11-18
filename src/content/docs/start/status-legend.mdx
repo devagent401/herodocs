@@ -1,0 +1,27 @@
+---
+title: "Status legend"
+description: "What the Integrated, Partly integrated, Mock only and Planned badges mean on every page of this site."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Every page ends with one overall status badge. The badges are strict: a page is only Integrated if its features work against the real backend. Use them to decide what you can rely on.
+
+## What works with the real API
+| Badge | Meaning |
+|---|---|
+| <Badge text="Integrated" variant="success" /> | Wired to real backend calls in live mode. Only small gaps remain. |
+| <Badge text="Partly integrated" variant="caution" /> | Some features use the real API, others are MOCK, demo data or missing. The page lists which. |
+| <Badge text="Mock only" variant="danger" /> | Runs only in the browser (mock store or local settings). Nothing reaches a server. |
+| <Badge text="Planned" variant="note" /> | Not built yet. |
+
+## Not finished yet
+- Test files existing is not proof of integration. A feature counts only when a real server route is called.
+- Anything labelled MOCK in the app is never counted as integrated.
+- If a page says "not verified", the docs could not confirm it from the code.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+Not needed for this page.

@@ -1,0 +1,65 @@
+---
+title: "Roles and permissions"
+description: "The six built-in roles, what each one can see and do, and how masked contact data works."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## What it is
+
+Every person in HeroCloud has one **role**. A role is a list of **permissions** (for example `payment.reconcile`) plus a **scope**. The scope says whose records the person can see:
+
+- **OWN**: only their own leads and customers.
+- **TEAM**: their team's records.
+- **PROJECT**: the records of their project (a brand or campaign group).
+- **TENANT**: the whole company workspace.
+
+The server checks every action. The UI only hides buttons, so hiding a button is not security. The sidebar also removes pages the role has no permission for.
+
+## Who uses it
+
+| Role | Scope | What they do |
+|---|---|---|
+| Admin | TENANT | Everything: providers, roles, settings, all data, full contact details. |
+| Project Manager | PROJECT | Runs projects. Everything a sales agent does, plus assigning, importing and exporting leads, full contact details, listening to recordings, approving offers, paid postal mail, campaigns, routing, phone numbers, templates, domains, client portals, all reports and the audit log. |
+| Team Lead | TEAM | Coaches a team. Sales agent rights plus assigning leads, listening to recordings, transcript search, approving offers and team reports. Contact data stays masked. |
+| Sales Agent | OWN | Works own leads and customers: calls, offers, documents, signing. Sees **masked** contact data. |
+| Inbound Agent | PROJECT | Takes central inbound calls, identifies callers, creates leads and transfers calls. Masked contact data. No offers editing or payments. |
+| Backoffice | TENANT | Payments, reconciliation, fulfillment cases, gold holdings, postal, client portals. Sees full contact details because payment checks need them. |
+
+Masked means a phone number or email is shown in part only, for example `+49 •• •• 12`. Calls and sends use record ids, never the raw number.
+
+## What you can do
+
+1. Sign in. Your role decides which sidebar pages you see.
+2. Admins open **Team and roles** to invite people and assign roles.
+3. Admins can clone a role, choose its permissions and scope, and save it as a custom role. Built-in roles are protected.
+4. Use the **Audit log** (Admin, Project Manager) to see sensitive actions.
+
+These actions are always written to the audit log: revealing masked data, playing a recording, transcript search, exports, role or permission changes, provider changes, reconciliation decisions, paid postal sends, document edits, and deletion requests.
+
+## Screenshots
+
+<Tabs>
+  <TabItem label="Light">
+    ![Team and roles page](/shots/team-roles/main-light.png)
+  </TabItem>
+  <TabItem label="Dark">
+    ![Team and roles page](/shots/team-roles/main-dark.png)
+  </TabItem>
+</Tabs>
+
+## Status
+
+| Feature | Status | Notes |
+|---|---|---|
+| Six system roles and permission catalogue | <Badge text="Done" variant="success" /> | Defined once in the shared contracts |
+| Masked contact data for agents | <Badge text="Done" variant="success" /> | Applied on the server and in the UI |
+| Scope filtering (OWN, TEAM, PROJECT) in live mode | <Badge text="Partial" variant="caution" /> | The payments service did not apply OWN/TEAM/PROJECT scope in a review of the holdings work (finding B1, not confirmed fixed) |
+| Custom roles | <Badge text="Partial" variant="caution" /> | Created, edited and deleted through the settings API in live mode. Whether every service enforces each custom permission is not verified |
+
+## Known gaps
+
+- Admins receive payment, compliance, AI-credit and warm-up alerts, but not lead, task or sale alerts unless they own the record.
+- See [Known gaps](/system/known-gaps/).
+
+**Where in code:** `packages/contracts/src/permissions.ts` (`SYSTEM_ROLE_TEMPLATES`, `PERMISSION_GROUPS`); server checks in `services/api/src/core/permissions.ts`; sidebar filtering in `apps/prototype/src/app/navigation.tsx`.

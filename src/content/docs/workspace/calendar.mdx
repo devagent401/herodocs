@@ -1,0 +1,25 @@
+---
+title: "Calendar"
+description: "A shared calendar for appointments in day, week, month and agenda views."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+The Calendar shows appointments for agents in Day, Week, Month and Agenda views (`/calendar?view=month` opens one directly). A small month picker, an agent and team filter and a New appointment button sit on the page. You can create, move, resize and filter them by agent or team. It also receives bookings made by customers. Route: `/calendar`.
+
+## What works with the real API
+- Loads appointments from the core API (`GET /v1/appointments`) for the shown date range.
+- Create, edit, drag-to-move, resize, status changes and delete are saved to the server (`POST`, `PATCH`, `DELETE /v1/appointments`).
+- Customer bookings from the booking service arrive on the server and appear through live updates.
+- Appointment reminders are sent by the server scheduler.
+
+## Not finished yet
+- Loading needs `person.view`; without it the calendar is empty.
+- The demo scenarios (book from a call wrap-up, advance the demo clock) are mock tools only.
+- Working-hours and absence bands: not verified against the server.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Calendar week](/shots/calendar/main-light.png)![Month view](/shots/calendar/month-light.png)![Agenda view](/shots/calendar/agenda-light.png)</TabItem><TabItem label="Dark">![Calendar week](/shots/calendar/main-dark.png)![Month view](/shots/calendar/month-dark.png)![Agenda view](/shots/calendar/agenda-dark.png)</TabItem></Tabs>

@@ -1,0 +1,25 @@
+---
+title: Backoffice
+description: "Fulfillment cases that turn a paid gold order into purchased, stored gold."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Back-office staff work a case for each paid order: assign it, buy the gold, store it, confirm it. Route: `/backoffice` and `/backoffice/:caseId`.
+
+## What works with the real API
+- In live mode the case list and case detail load from the payments service fulfillment routes. The open-case count in the sidebar comes from there too.
+- Case actions are real server calls: assign, hold, resume, record purchase (supplier, reference, grams, price per gram), record storage (vault location), confirm, and skip a step with a reason.
+- The server owns the checklist, the status and the holding booking, so the screen never decides them.
+- Server code is in `services/payments/src/fulfillment` and `routes/fulfillment.ts`. The case detail page shows the checklist, activity timeline and the gold purchase details.
+
+## Not finished yet
+- Demo mode keeps the older mock cases pages.
+- Fulfillment is tested locally only. It is not verified as deployed in production.
+- Supplier purchase is recorded by hand. No supplier integration.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Backoffice cases](/shots/backoffice/main-light.png)</TabItem><TabItem label="Dark">![Backoffice cases](/shots/backoffice/main-dark.png)</TabItem></Tabs>

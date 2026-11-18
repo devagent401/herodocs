@@ -1,0 +1,25 @@
+---
+title: "Compliance"
+description: "A queue of blocked or flagged messages and calls, with admin review and agent unlock."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Compliance shows violations found by the guard (for example asking for a TAN or a foreign IBAN) and lets admins dismiss, escalate or confirm them and unlock locked agents. Route: `/compliance`. Tabs: Violations, Rules, Agents (risk score and unlock), Settings, Audit.
+
+## What works with the real API
+- In live mode the queue, locks, stats and audit load from the guard service (`/v1/guard/violations`, `/locks`, `/stats`, `/audit`).
+- Dismiss, escalate and confirm, and Unlock agent are server calls.
+- Policy settings load and save through `/v1/guard/policy`, and the sentence tester uses `/v1/guard/policy/test` (may spend AI credits).
+- The guard service exists in the repo with its own HTTP routes.
+
+## Not finished yet
+- The live lock screen and in-call blocking depend on the telephony and mail paths calling the guard; not verified end to end.
+- Demo scenarios (blocked email, locked agent) run only on the in-browser engine.
+- Notification of admins on high violations was not verified.
+
+## Overall status
+<Badge text="Integrated" variant="success" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Compliance page](/shots/compliance/main-light.png)</TabItem><TabItem label="Dark">![Compliance page, dark](/shots/compliance/main-dark.png)</TabItem></Tabs>

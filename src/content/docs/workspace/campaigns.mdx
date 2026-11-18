@@ -1,0 +1,26 @@
+---
+title: Campaigns
+description: "Marketing campaigns that feed leads in, with routing and status."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Campaigns group where leads come from (ads, forms, imports) and how new leads are routed. Campaign managers use `/campaigns` and the detail page `/campaigns/:campaignId`. The list has views (All, Active, Paid ads, board by status). The detail page has tabs: Performance, Leads, Sequence, Live routing and Enrollments.
+
+## What works with the real API
+- In live mode the campaigns are loaded, created, edited and deleted through the core API (`/v1/crm/campaigns`).
+- Edits to status, budget and spend, sequence, tracking number and the live-routing settings are sent to the same endpoint.
+- Lead ingest and CSV import can be tied to a campaign (`/v1/leads/ingest`, `/v1/leads/import`).
+
+## Not finished yet
+- The live-routing settings are saved, but the accept timer and routing attempts run in the browser; server side not verified.
+- Sequence enrollments and sending are not verified against a server.
+- Spend is a stored number; no ad platform feeds it.
+- The "simulate incoming lead" button is a MOCK demo action, shown only in demo mode.
+- Ad platform connections (real webhooks from Meta etc.) are not verified.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Campaigns](/shots/campaigns/main-light.png)</TabItem><TabItem label="Dark">![Campaigns](/shots/campaigns/main-dark.png)</TabItem></Tabs>

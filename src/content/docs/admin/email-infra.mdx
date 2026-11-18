@@ -1,0 +1,26 @@
+---
+title: "Email infrastructure"
+description: "Sending domains, mailboxes, warm-up and suppression list for cold email."
+---
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Purpose
+Shows the health of sending domains (SPF, DKIM, DMARC, MX), mailboxes, warm-up and the suppression list. Used by whoever runs email campaigns. Route: `/email-infra`. Tabs: Domains, Mailboxes, Providers, Suppression list, Webhook log, Sequences. A sequence opens at `/email-infra/sequences/:sequenceId`.
+
+## What works with the real API
+- The suppression list is loaded from the comms service in live mode (hydrated into the page).
+- Campaigns (Instantly) can be listed, created as drafts, linked and synced, with leads added by contact id, through the comms service (managed in a separate settings page, not this one).
+- Message templates load from comms.
+- Warm-up data has its own live adapter (`features/warmup`) on comms.
+
+## Not finished yet
+- The main page (domains table, mailboxes, DNS re-check, start warm-up, provider connect, webhook log) still uses the in-browser mock store and is labelled MOCK.
+- The Sequences tab and the sequence builder: not verified against the server.
+- WhatsApp is an interface only; there is no provider account.
+- The suppression add and remove calls exist in the live adapter, but whether this page uses them is not verified.
+
+## Overall status
+<Badge text="Partly integrated" variant="caution" />
+
+## Screenshots
+<Tabs><TabItem label="Light">![Email infrastructure](/shots/email-infra/main-light.png)</TabItem><TabItem label="Dark">![Email infrastructure](/shots/email-infra/main-dark.png)</TabItem></Tabs>
